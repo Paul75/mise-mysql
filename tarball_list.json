@@ -878,7 +878,7 @@
     {
       "name": "mysql-8.0.22-macos10.15-x86_64.tar.gz",
       "checksum": "SHA512:158b5e79373ea3b2d65d00041c19bdd0ec3f54814292210314b4f3c901adc2e4f702a5b3b3ae6965dbc0afe09ff6114c311435e00eeb41b0a00b1def60a1961d",
-      "OS": "darwin",
+      "OS": "Darwin",
       "arch": "amd64",
       "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.22-macos10.15-x86_64.tar.gz",
       "flavor": "mysql",
@@ -892,7 +892,7 @@
     {
       "name": "mysql-shell-8.0.22-macos10.15-x86-64bit.tar.gz",
       "checksum": "SHA512:7fa45e546d86e0d6d45368924afbfbfb6f2cc648b2e6b3fcd6ff01479c7182d55912e7d6d5c65e5c69bb08906fd53cb7f95ba5e72450da093b64683d946a673b",
-      "OS": "darwin",
+      "OS": "Darwin",
       "arch": "amd64",
       "url": "https://dev.mysql.com/get/Downloads/MySQL-Shell/mysql-shell-8.0.22-macos10.15-x86-64bit.tar.gz",
       "flavor": "shell",
@@ -906,7 +906,7 @@
     {
       "name": "mysql-cluster-8.0.22-macos10.15-x86_64.tar.gz",
       "checksum": "SHA512:ad1adf4b888a65cfc2a8d670a329a81fca89ef91d4e91c748ffcba9f421f15dbc2d16f172147d1179149ad7b0e9c5e8288e2da1ac91df5857ea5f8923bb7340f",
-      "OS": "darwin",
+      "OS": "Darwin",
       "arch": "amd64",
       "url": "https://dev.mysql.com/get/Downloads/MySQL-Cluster-8.0/mysql-cluster-8.0.22-macos10.15-x86_64.tar.gz",
       "flavor": "ndb",
@@ -1116,7 +1116,7 @@
     {
       "name": "mysql-8.0.24-macos11-x86_64.tar.gz",
       "checksum": "SHA512:572bccda2db79f8f1cc3ff3d999645968fc330eca8ed13e8f8c94098bab22b9bc04ea6fe6a31f9c14b9119d5c2d188d58a576f591226749891cf3d1b796de7a0",
-      "OS": "darwin",
+      "OS": "Darwin",
       "arch": "amd64",
       "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.24-macos11-x86_64.tar.gz",
       "flavor": "mysql",

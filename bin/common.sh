@@ -17,12 +17,11 @@ get_mysql_records() {
     ARCH="[^\"]*"
   fi
 
-  cat "${SCRIPT_DIR}/../tarball_list.json" |
-
-  tr '\n' ' ' |
-  tr '{}' '\n\n' |
-  grep -e "\"OS\": *\"$OS\"" |
-  grep -e "\"arch\": *\"$ARCH\"" |
-  grep -e '"flavor": *"mysql"' |
-  grep -e '"minimal": *false'
+  jq --arg os "$OS" --arg arch "$ARCH" \
+    '.Tarballs[] |
+      select(.OS == $os and
+             .arch == $arch and
+             .flavor == "mysql" and
+             .minimal == false)' \
+    "${SCRIPT_DIR}/../tarball_list.json"
 }

@@ -105,4 +105,9 @@ install_MySQL() {
   echo "  mysqladmin -u root shutdown"
 }
 
+if [[ -z "$ASDF_INSTALL_VERSION" || -z "$ASDF_INSTALL_PATH" ]]; then
+  echo "Error: This script is meant to be run through asdf." >&2
+  exit 1
+fi
+
 install_MySQL "version" "${ASDF_INSTALL_VERSION}" "${ASDF_INSTALL_PATH}"
