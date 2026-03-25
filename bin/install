@@ -71,6 +71,7 @@ install_MySQL() {
         ./configure --prefix="${install_path}"
         make -j 4 install
     else
+      mkdir -p "$(dirname "${install_path}")"
       [[ -d "${install_path}" ]] && rm -rf "${install_path}"
       mv "${DIR}" "${install_path}"
     fi
@@ -104,10 +105,4 @@ install_MySQL() {
   echo "  mysqladmin -u root shutdown"
 }
 
-if [[ -z "$ASDF_INSTALL_TYPE" ]]; then
-  echo "This command should not be run directly, only via asdf"
-  exit 1
-fi
-
-install_MySQL $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
-echo "!!WARNING!!: This module is no longer actively maintained. If you are interested in becoming a maintainer, please open an issue on github."
+install_MySQL "version" "${ASDF_INSTALL_VERSION}" "${ASDF_INSTALL_PATH}"
