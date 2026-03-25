@@ -21,7 +21,7 @@ install_MySQL() {
   #   | awk -F\" '/"url"/{ print $4 }'
   # )"
 
-  URL=$(get_mysql_records "$MYSQL_VERSION" | jq -r '.[0].url // empty')
+  URL=$(get_mysql_records "$MYSQL_VERSION" | jq -r '.url // empty')
 
   # It's possible that multiple URLs will be returned, generally when
   # there are multiple architectures available for a given OS / MySQL version.

@@ -1,5 +1,6 @@
 get_mysql_records() {
-  OS=$(uname -s)
+  local version=$1
+  local OS=$(uname -s)
 
   case "$(uname -m)" in
     x86_64)
