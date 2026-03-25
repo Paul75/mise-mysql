@@ -15,12 +15,6 @@ install_MySQL() {
 
   tmp_download_dir=$(mktemp -d)
 
-  # URL="$(get_mysql_records \
-  #   | grep -e "\"version\": *\"$MYSQL_VERSION\"" \
-  #   | tr , '\n' \
-  #   | awk -F\" '/"url"/{ print $4 }'
-  # )"
-
   URL=$(get_mysql_records "$MYSQL_VERSION" | jq -r '.url // empty')
 
   # It's possible that multiple URLs will be returned, generally when
@@ -28,7 +22,7 @@ install_MySQL() {
   # Try to match the native architecture, otherwise fall back to the first one
   if [[ "$(echo $URL | wc -w)" -ne 1 ]]; then
     # Try to choose the arch-specific version
-    ARCH_URL="$(echo $URL | tr ' ' '\n' | grep $(uname -m))"
+    ARCH_URL="$(echo "$URL" | tr ' ' '\n' | grep "$(uname -m)" | tail -1)"
     if [[ -z "$ARCH_URL" ]]; then
       ARCH_URL="$(echo $URL | cut -d' ' -f1)"
     fi
