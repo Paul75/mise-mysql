@@ -15,11 +15,13 @@ install_MySQL() {
 
   tmp_download_dir=$(mktemp -d)
 
-  URL="$(get_mysql_records \
-    | grep -e "\"version\": *\"$MYSQL_VERSION\"" \
-    | tr , '\n' \
-    | awk -F\" '/"url"/{ print $4 }'
-  )"
+  # URL="$(get_mysql_records \
+  #   | grep -e "\"version\": *\"$MYSQL_VERSION\"" \
+  #   | tr , '\n' \
+  #   | awk -F\" '/"url"/{ print $4 }'
+  # )"
+
+  URL=$(get_mysql_records "$MYSQL_VERSION" | jq -r '.[0].url // empty')
 
   # It's possible that multiple URLs will be returned, generally when
   # there are multiple architectures available for a given OS / MySQL version.

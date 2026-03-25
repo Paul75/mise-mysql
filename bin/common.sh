@@ -18,10 +18,12 @@ get_mysql_records() {
   fi
 
   jq --arg os "$OS" --arg arch "$ARCH" \
-    '.Tarballs[] |
-      select(.OS == $os and
-             .arch == $arch and
-             .flavor == "mysql" and
-             .minimal == false)' \
-    "${SCRIPT_DIR}/../tarball_list.json"
+    --arg version "$version" \
+      '.Tarballs[] |
+      select(.version == $version and
+      .OS == $os and
+      .arch == $arch and
+      .flavor == "mysql" and
+      .minimal == false)' \
+      "${SCRIPT_DIR}/../tarball_list.json"
 }
